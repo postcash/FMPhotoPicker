@@ -12,8 +12,15 @@ public protocol FMCroppable {
     func crop(image: UIImage, toRect rect: CGRect) -> UIImage
     func name(strings: [String: String]) -> String?
     func icon() -> UIImage
+    func iconForInativeMode() -> UIImage
+    func iconForActiveMode() -> UIImage
     func ratio() -> FMCropRatio?
     func identifier() -> String
+}
+
+public extension FMCroppable {
+    func iconForInativeMode() -> UIImage { UIImage() }
+    func iconForActiveMode() -> UIImage { UIImage() }
 }
 
 extension FMCroppable {

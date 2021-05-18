@@ -10,8 +10,10 @@ import UIKit
 
 class FMCropCell: UICollectionViewCell {
     static let reussId = String(describing: self)
-    public var imageView: UIImageView
-    public var name: UILabel
+    private var imageView: UIImageView
+    private var name: UILabel
+    var activeIcon: UIImage?
+    var inactiveIcon: UIImage?
     
     override init(frame: CGRect) {
         imageView = UIImageView()
@@ -28,8 +30,7 @@ class FMCropCell: UICollectionViewCell {
         name.translatesAutoresizingMaskIntoConstraints = false
         name.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         name.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4).isActive = true
-        
-        name.text = "Crop"
+
         name.textColor = kGrayColor
         name.font = UIFont.systemFont(ofSize: 8)
     }
@@ -39,15 +40,11 @@ class FMCropCell: UICollectionViewCell {
     }
     
     public func setSelected() {
-        let tintedImage = imageView.image?.withRenderingMode(.alwaysTemplate)
-        imageView.image = tintedImage
-        imageView.tintColor = kGreenColor
-        
-        name.textColor = kGreenColor
+        imageView.image = activeIcon
     }
     
     public func setDeselected() {
-        name.textColor = kGrayColor
+        imageView.image = inactiveIcon
     }
     
     required init?(coder aDecoder: NSCoder) {

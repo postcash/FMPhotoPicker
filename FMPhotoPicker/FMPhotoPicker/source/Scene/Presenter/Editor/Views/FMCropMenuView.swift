@@ -129,16 +129,18 @@ extension FMCropMenuView: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             // menu items
-            cell.name.text = menuItems[indexPath.row].name(from: config.strings)
-            cell.imageView.image = menuItems[indexPath.row].icon()
+//            cell.name.text = menuItems[indexPath.row].name(from: config.strings)
+//            cell.imageView.image = menuItems[indexPath.row].icon()
         } else if indexPath.section == 1 {
             // crop items
             let cropItem = cropItems[indexPath.row]
-            cell.name.text = cropItem.name(strings: config.strings)
-            cell.imageView.image = cropItem.icon()
+            cell.activeIcon = cropItem.iconForActiveMode()
+            cell.inactiveIcon = cropItem.iconForInativeMode()
             
             if selectedCrop?.identifier() == cropItem.identifier() {
                 cell.setSelected()
+            } else {
+                cell.setDeselected()
             }
         }
         

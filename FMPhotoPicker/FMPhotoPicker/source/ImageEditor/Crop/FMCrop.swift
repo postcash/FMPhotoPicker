@@ -73,6 +73,14 @@ public enum FMCrop: FMCroppable {
         }
         return UIImage()
     }
+
+  public func iconForActiveMode() -> UIImage {
+    UIImage(named: "icon_crop_4x3", in: .current, compatibleWith: nil)!
+  }
+
+  public func iconForInativeMode() -> UIImage {
+    UIImage(named: "icon_crop_16x9", in: .current, compatibleWith: nil)!
+  }
     
     public func identifier() -> String {
         switch self {
