@@ -92,16 +92,13 @@ class ViewController: UIViewController, FMPhotoPickerViewControllerDelegate, FMI
         
         // in force crop mode, only the first crop option is available
         config.availableCrops = [
-            FMCrop.ratioSquare,
-            FMCrop.ratioCustom,
-            FMCrop.ratio4x3,
             FMCrop.ratio16x9,
             FMCrop.ratio9x16,
-            FMCrop.ratioOrigin,
+            FMCrop.ratio4x3,
         ]
         
         // all available filters will be used
-        config.availableFilters = []
+        config.availableFilters = nil
         
         return config
     }

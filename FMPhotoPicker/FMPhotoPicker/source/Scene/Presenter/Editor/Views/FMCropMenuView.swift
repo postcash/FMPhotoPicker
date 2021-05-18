@@ -58,14 +58,14 @@ class FMCropMenuView: UIView {
         
         // if the force crop mode is enabled
         // then only the first crop type in the avaiableCrops will be used
-        if config.forceCropEnabled {
-            tAvailableCrops = [tAvailableCrops.first!]
-        }
+//        if config.forceCropEnabled {
+//            tAvailableCrops = [tAvailableCrops.first!]
+//        }
         
         cropItems = tAvailableCrops
         
         if config.forceCropEnabled {
-            menuItems = [.resetFrameWithoutChangeRatio]
+            menuItems = []
         } else {
             menuItems = [.resetAll]
         }
@@ -81,8 +81,8 @@ class FMCropMenuView: UIView {
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        collectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        collectionView.widthAnchor.constraint(equalToConstant: 52 * CGFloat(cropItems.count)).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         collectionView.register(FMCropCell.classForCoder(), forCellWithReuseIdentifier: FMCropCell.reussId)
@@ -91,7 +91,7 @@ class FMCropMenuView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 0,left: 14,bottom: 0,right: 14)
+        collectionView.contentInset = UIEdgeInsets(top: 0,left: 0, bottom: 0,right: 0)
     
         self.backgroundColor = .clear
         collectionView.backgroundColor = .clear
