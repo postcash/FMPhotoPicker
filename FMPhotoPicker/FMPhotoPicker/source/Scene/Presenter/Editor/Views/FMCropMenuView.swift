@@ -71,7 +71,7 @@ class FMCropMenuView: UIView {
         }
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 52, height: 64)
+        layout.itemSize = CGSize(width: 68, height: 64)
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -82,7 +82,7 @@ class FMCropMenuView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        collectionView.widthAnchor.constraint(equalToConstant: 52 * CGFloat(cropItems.count)).isActive = true
+        collectionView.widthAnchor.constraint(equalToConstant: 68 * CGFloat(cropItems.count)).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         collectionView.register(FMCropCell.classForCoder(), forCellWithReuseIdentifier: FMCropCell.reussId)

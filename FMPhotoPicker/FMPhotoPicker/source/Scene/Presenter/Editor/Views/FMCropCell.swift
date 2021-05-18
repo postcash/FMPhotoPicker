@@ -21,7 +21,7 @@ class FMCropCell: UICollectionViewCell {
         
         super.init(frame: frame)
         
-        imageView.frame = CGRect(x: (frame.width - 24) / 2, y: 20, width: 24, height: 24)
+        imageView.frame = CGRect(x: (frame.width - 52) / 2, y: 20, width: 52, height: 24)
         imageView.contentMode = .scaleAspectFit
         
         self.addSubview(imageView)
